@@ -1,0 +1,132 @@
+\chapter{Signals \& Systems}
+
+\section{What is a system?}
+
+A system is defined as a grouping of elements to be 
+analysed together. They can be categorised as linear or 
+non-linear, depending on the equations used to 
+describe them.
+Linear systems are considered to be idealised systems, 
+whilst non-linear systems are those representing real-world 
+conditions.
+
+Systems may also be categorised based on the
+\emph{order} of their differential equations. Some examples 
+of categorised systems are shown in table \ref{table: 
+examples of systems}.
+
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c|cc}
+ & Linear & Non-Linear\\
+ \hline
+1st order & RC circuit & Population growth\\
+2nd order & Spring Mass Damper & Pendulum\\
+3rd order & - & Chaotic Systems\\
+... & ...  & ... \\
+Nth order & Wave Equation & General Relativity\\
+\hline
+\end{tabular}
+\label{table: examples of systems}
+\caption{Examples of linear and non-linear systems.}
+\end{table}
+
+\section{Linear Systems}
+A system is considered linear if they meet the following 
+two principles: 
+
+\begin{itemize}
+ \item Proportionality. Given an input $t$, the system will 
+return an output $f(t)$, and if given an input $\alpha t$ 
+the system will return an output $f(\alpha t) = \alpha 
+f(t)$.
+ \item Superposition. Given inputs $t_1$ and $t_2$, the 
+system will return outputs $f(t_1)$ and $f(t_2)$ 
+respectively. If given an input $t_1 + t_2$ the system will 
+return an output $f(t_1 + t_2) = f(t_1) + f(t_2)$.
+\end{itemize}
+
+\subsection{Exercise 1: Linear systems}
+Given the following equations, determine if they belong to 
+linear systems or not.
+
+\textbf{Case 1:} $f(s) = 3s$. Evaluating the function to 
+test proportionality, we obtain the following:
+
+\begin{equation*}
+ \begin{split}
+  f(2s) & =3(2s)\\
+  & = 6 s\\
+  2 f(s) &= 2 (3s)\\
+  &= 6s\\
+  f(2s)&=2f(s)
+ \end{split}
+\end{equation*}
+
+For the superposition principle, we have:
+\begin{equation*}
+ \begin{split}
+  f(s_1) & =3s_1\\
+  f(s_2) & =3s_2\\
+  f(s_1+s_2) & =3(s_1+s_2)\\
+   &= 3s_1 + 3s_2\\
+  f(s_1 + s_2) & = f(s_1) + f(s_2)
+ \end{split}
+\end{equation*}
+
+We conclude that case 1 is linear.
+
+\vspace*{1cm}
+
+An equation can be tested to meet both principles 
+simultaneously. Let $s=\alpha(s_1+s_2)$ and $f(s)$ be the 
+output of the system. A system is linear if the following 
+condition is met:
+
+\begin{equation}
+  f(\alpha(s_1+s_2))  = \alpha f(s_1) + \alpha f(s_2)
+  \label{eq: proportionality and superposition}
+\end{equation}
+
+Evaluating \ref{eq: proportionality and superposition} for 
+case 1 as an example:
+
+\begin{equation*}
+\begin{split}
+ f(\alpha (s_1 + s_2)) & = 3 (\alpha (s_1 + s_2))\\
+ & = 3 \alpha s_1 + 3 \alpha s_2\\
+ f(\alpha s) & = 3 \alpha s \\
+ f(\alpha (s_1 + s_2)) & = \alpha f(s_1) + \alpha f(s_2)
+\end{split}
+\end{equation*}
+
+\textbf{Case 2:} $3s + 1$
+
+Case 2 is non-linear.
+
+\vspace*{1cm}
+
+\textbf{Case 3:} $0.5 \cos (0.1 s) $
+
+Case 3 is non-linear.
+
+\vspace*{1cm}
+
+\textbf{Case 4:} $1.2 \mathrm{e}^{0.1 s}$
+
+Case 4 is non-linear.
+
+\vspace*{1cm}
+
+\textbf{Case 5:} $\int\limits_0^t s(t)dt$
+
+Case 5 is linear.
+
+\vspace*{1cm}
+
+\textbf{Case 6:} $\frac{ds(t)}{dt}$
+
+Case 6 is linear.
+
+\vspace*{1cm}
