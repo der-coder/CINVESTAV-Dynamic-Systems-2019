@@ -47,7 +47,7 @@ respectively. If given an input $t_1 + t_2$ the system will
 return an output $f(t_1 + t_2) = f(t_1) + f(t_2)$.
 \end{itemize}
 
-\subsection{Exercise 1: Linear systems}
+\subsection{Exercise: Linear systems}
 Given the following equations, determine if they belong to 
 linear systems or not.
 
@@ -77,7 +77,7 @@ For the superposition principle, we have:
 
 We conclude that case 1 is linear.
 
-\vspace*{1cm}
+% \vspace*{1cm}
 
 An equation can be tested to meet both principles 
 simultaneously. Let $s=\alpha(s_1+s_2)$ and $f(s)$ be the 
@@ -101,32 +101,321 @@ case 1 as an example:
 \end{split}
 \end{equation*}
 
-\textbf{Case 2:} $3s + 1$
+\textbf{Case 2:} $f(s) = 3s + 1$.
+
+\begin{equation*}
+ \begin{split}
+  f(\alpha s) & = 3 \alpha  s +1\\
+  \alpha f(s) & = 3 \alpha s + \alpha\\
+  f(\alpha s) & \neq \alpha f(s)\\
+  f(s_1) + f(s_2) & = 3 s_1 + 3 s_2 + 2\\
+  f(s_1 + s_2) & = 3 (s_1+s_2) + 1\\
+  f(s_1 +s_2) & \neq f(s_1) + f(s_2)
+ \end{split}
+\end{equation*}
+
 
 Case 2 is non-linear.
 
-\vspace*{1cm}
+% \vspace*{1cm}
 
-\textbf{Case 3:} $0.5 \cos (0.1 s) $
+\textbf{Case 3:} $f(s) = 0.5 \cos (0.1 s) $
+
+\begin{equation*}
+ \begin{split}
+  f(\alpha s) & = 0.5 \cos (0.1 \alpha s)\\
+  \alpha f(s) & = 0.5 \alpha \cos (0.1 s)\\
+  f(\alpha s) & \neq \alpha f(s)\\
+  f(s_1) + f(s_2) & = 0.5 \cos (0.1 s_1) + 0.5 \cos (0.1 
+s_2) \\
+  f(s_1 + s_2) & = 0.5 \cos (0.1 s_1 + 0.1 s_2)\\
+  f(s_1 + s_2) & \neq f(s_1) + f(s_2)
+ \end{split}
+\end{equation*}
+
 
 Case 3 is non-linear.
 
-\vspace*{1cm}
+% \vspace*{1cm}
 
-\textbf{Case 4:} $1.2 \mathrm{e}^{0.1 s}$
+\textbf{Case 4:} $f(s) = 1.2 \mathrm{e}^{0.1 s}$
+
+\begin{equation*}
+ \begin{split}
+f(\alpha (s_1+s_2))  & = 1.2 \mathrm{e}^{0.1 \alpha (s_1 + 
+s_2)}\\
+\alpha f(s_1) & = 1.2 \alpha \mathrm{e}^{0.1 s_1}\\
+\alpha f(s_1) + \alpha f(s_2) & = 1.2 \alpha 
+(\mathrm{e}^{0.1 s_1} + \mathrm{e}^{0.1 s_2})\\
+f(\alpha (s_1+s_2))  & \neq \alpha f(s_1) + \alpha f(s_2)
+ \end{split}
+\end{equation*}
+
 
 Case 4 is non-linear.
 
-\vspace*{1cm}
+% \vspace*{1cm}
 
-\textbf{Case 5:} $\int\limits_0^t s(t)dt$
+\textbf{Case 5:} $f(s) = \int\limits_0^t s(t)dt$
+\begin{equation*}
+ \begin{split}
+f(\alpha (s_1 + s_2))  & = \alpha \int\limits_0^t 
+\Bigl( s_1(t)+s_2(t) \Bigr)  dt\\
+& = \alpha \int\limits_0^t 
+s_1(t)dt + \alpha \int\limits_0^t 
+s_2(t)dt\\
+\alpha f(s_1) + \alpha f(s_2) & = \alpha \int\limits_0^t 
+s_1(t)dt + \alpha \int\limits_0^t 
+s_2(t)dt\\
+f(\alpha (s_1+s_2))  & = \alpha f(s_1) + \alpha f(s_2)
+ \end{split}
+\end{equation*}
 
 Case 5 is linear.
 
-\vspace*{1cm}
+% \vspace*{1cm}
 
-\textbf{Case 6:} $\frac{ds(t)}{dt}$
+\textbf{Case 6:} $f(s) = \frac{ds(t)}{dt}$
+
+\begin{equation*}
+ \begin{split}
+f(\alpha (s_1 + s_2))  & =  \alpha 
+\frac{d \Bigl (s_1(t)+s_2(t) \Bigr)}{dt}\\
+& = \alpha \frac{d s_1(t)}{dt} + \alpha \frac{d 
+s_2(t)}{dt} \\
+\alpha f(s_1) + \alpha f(s_2) & = \alpha \frac{d s_1(t)}{dt} 
++ \alpha \frac{d s_2(t)}{dt} \\
+f(\alpha (s_1+s_2))  & = \alpha f(s_1) + \alpha f(s_2)
+ \end{split}
+\end{equation*}
 
 Case 6 is linear.
 
-\vspace*{1cm}
+Note that for all equations $\alpha \neq 1$ because using 
+the identity is not valid for proving compliance.
+
+\subsection{Order of a system}
+
+The order of a system is dependent on the highest order of 
+derivatives in the equations that describe it. A system 
+with no derivative terms is a \emph{zero order} system, a 
+system with a differential equation of order 1 is a 
+\emph{first-order} system, and so on.
+
+Revisiting the cases shown in Exercise 1, we can classify 
+the systems depending on their order as well. Table 
+\ref{table: exercise 1 order} contains the classification 
+of each case.
+
+\begin{table}[t]
+\centering
+\begin{tabular}{c|cc}
+Equation & Type & Order\\
+\hline
+$3s$ & Linear & 0\\
+$3s + 1$ & Non-linear & 0\\
+$0.5 \cos (0.1 s)$ & Non-Linear & 0\\
+$1.2 \mathrm{e}^{0.1s}$ & Non-Linear & 0\\
+$\int\limits_0^{t} s(t)dt$ & Linear & 0\\
+$\frac{d s(t)}{dt}$ & Linear & 1\\
+\hline
+\end{tabular}
+\label{table: exercise 1 order}
+\caption{Classification of systems.}
+\end{table}
+
+\section{Example: Spring-Mass-Damper System}
+
+The Spring-Mass-Damper System (abbreviated SMD) is the most 
+commonly used abstraction for systems. Depending on the 
+initial conditions of the systems, it may or may not be 
+linear. An example is presented below.
+
+Given the forces interacting in the Free Body Diagram, the 
+system's equation is obtained as follows:
+
+\begin{equation}
+ \begin{split}
+  \sum F & = 0\\
+  F_s(t) + F_d(t) - F(t) & = 0\\
+ \end{split}
+ \label{eq: sum of forces}
+\end{equation}
+
+Recall the equations for springs and dampers, substituting 
+them in \ref{eq: sum of forces}.
+
+\begin{equation*}
+ \begin{split}
+  F_s & = b \dot{x}\\
+  F_d & = k x(t)\\
+  b \dot{x} + k x(t) & = F(t)
+ \end{split}
+\end{equation*}
+
+Rewriting the equation into the form $\dot x + f(t) x(t) = 
+g(t)$.
+
+\begin{equation}
+ \dot{x} + \frac{k}{b} x(t) = \frac{1}{b} F(t)
+ \label{eq: system equation}
+\end{equation}
+
+\subsection{Linear System Case}
+
+Solving the system via Laplace Transforms to obtain an 
+equation for x(t). Consider $x(0) = 0$ as the initial 
+condition.
+
+\begin{equation}
+ \begin{split}
+  \mathfrak{L} \Bigl \{ \dot{x} + \frac{k}{b} x(t)  = 
+\frac{1}{b} F(t) \Bigr \} & \xrightarrow{} s \mathcal{X} - 
+x(0) + \frac{k}{b} \mathcal{X} = \frac{1}{b} \mathcal{F}
+ \end{split}
+ \label{eq: general laplace transform}
+\end{equation}
+
+Evaluating $x(0)=0$ gives us the system equation in the 
+frequency domain.
+
+\begin{equation}
+ s \mathcal{X} + \frac{k}{b} \mathcal{X} = \frac{1}{b}
+\mathcal{F}
+\label{eq: laplace transform}
+\end{equation}
+
+Solve \ref{eq: laplace transform} for $\mathcal{X}$ and 
+then obtain the inverse Laplace transform of the equation.
+
+\begin{equation*}
+ \begin{split}
+  \mathcal{X} (s + \frac{k}{b}) & = \frac{1}{b} 
+\mathcal{F}\\
+\mathcal{X} & = \frac{1}{b} \frac{1}{s + \frac{k}{b}}
+\mathcal{F}\\
+ \end{split}
+\end{equation*}
+
+
+\begin{equation}
+ \begin{split}
+  \mathfrak{L}^{-1} \Bigl \{ \mathcal{X}  = \frac{1}{b} 
+\frac{1}{s + \frac{k}{b}}
+\mathcal{F}   \Bigr\} & \xrightarrow{} x(F(t)) = 
+\frac{1}{b} \mathrm{e}^{-\frac{k}{b}t} F(t)
+ \end{split}
+ \label{eq: linear system equation}
+\end{equation}
+
+Testing the principles of proportionality and superposition 
+on \ref{eq: linear system equation} we have
+
+\begin{equation*}
+ \begin{split}
+  x(\alpha (F_1 + F_2)) & = \frac{\alpha}{b} 
+\mathrm{e}^{-\frac{k}{b}t} (F_1 + F_2)\\
+\alpha x(F_1) & = \frac{\alpha}{b} 
+\mathrm{e}^{-\frac{k}{b}t} F_1\\
+\alpha x(F_1) + \alpha x(F_2) & = \frac{\alpha}{b} 
+\mathrm{e}^{-\frac{k}{b}t} (F_1 + F_2)\\
+x(\alpha (F_1 + F_2)) & = \alpha x(F_1) + \alpha x(F_2)
+ \end{split}
+\end{equation*}
+
+We confirm that the system is linear for an initial 
+condition of $x(0)=0$.
+
+\section{Homework}
+
+\subsection{Non-Linear Case}
+
+Given the conditions $x(0) = 0.5$ and $F(t) = F$, we 
+evaluate the Laplace transform of \ref{eq: system equation} 
+and obtain
+
+\begin{equation}
+  s \mathcal{X} - 0.5 + \frac{k}{b} \mathcal{X} = 
+\frac{1}{b} \frac{F}{s}
+\end{equation}
+
+Solving for $\mathcal{X}$.
+
+\begin{equation}
+ \mathcal{X} = \frac{F}{b}
+\frac{1}{s(s+\frac{k}{b})} + \frac{0.5}{s+\frac{k}{b}} 
+\label{eq: non-linear system equation laplace}
+\end{equation}
+
+Using partial fractions, find an equivalent expression for 
+\ref{eq: non-linear system equation laplace} .
+
+\begin{equation*}
+ \begin{split}
+  \frac{1}{s(s+\frac{k}{b})}  & = \frac{A}{s} + 
+\frac{B}{s+\frac{k}{b}}\\
+A & = \frac{b}{k}\\
+B &= -\frac{b}{k}\\
+ \end{split}
+\end{equation*}
+
+\begin{equation}
+ \frac{1}{s(s+\frac{k}{b})}   = \frac{1}{s} \frac{b}{k} - 
+\frac{b}{k}
+\frac{1}{s+\frac{k}{b}}
+\label{eq: partial fractions}
+\end{equation}
+
+Substitute \ref{eq: partial fractions} in \ref{eq: 
+non-linear system equation laplace} and then obtain the 
+inverse Laplace transform of the equation.
+
+\begin{equation*}
+ \begin{split}
+   \mathcal{X} & = \frac{F}{b}
+\Bigl ( \frac{1}{s} \frac{b}{k} - 
+\frac{b}{k}
+\frac{1}{s+\frac{k}{b}} \Bigr) + \frac{0.5}{s+\frac{k}{b}} 
+\\
+& = \frac{F}{k} \frac{1}{s}  - 
+\frac{F}{k}
+\frac{1}{s+\frac{k}{b}} + \frac{0.5}{s+\frac{k}{b}} 
+\\
+ \end{split}
+\end{equation*}
+
+\begin{equation}
+ \mathfrak{L}^{-1} \Bigl \{ \mathcal{X} \Bigr \} 
+\xrightarrow{} x(t) = \frac{F}{k} - \frac{F}{k} 
+\mathrm{e}^{-\frac{k}{b}t} + 0.5 \mathrm{e}^{-\frac{k}{b}t}
+\label{eq: non-linear system equation}
+\end{equation}
+
+Test the principles of proportionality and superposition on 
+\ref{eq: non-linear system equation}.
+
+\begin{equation*}
+ \begin{split}
+ x(\alpha t) & = \frac{F}{k} - \frac{F}{k} 
+\mathrm{e}^{-\alpha \frac{k}{b}t} + 0.5 
+\mathrm{e}^{-\alpha \frac{k}{b}t}\\
+ \alpha x(t) &= \alpha \frac{F}{k} - \alpha \frac{F}{k} 
+\mathrm{e}^{-\frac{k}{b}t} + 0.5 \alpha 
+\mathrm{e}^{-\frac{k}{b}t}\\
+x(\alpha t) & \neq \alpha x(t)\\
+  x( t_1 + t_2) & = \frac{F}{k} - \frac{F}{k} 
+\mathrm{e}^{-\frac{k}{b}(t_1+t_2)} + 0.5 
+\mathrm{e}^{-\frac{k}{b}(t_1+t_2)}\\
+x(t_1) +  x(t_2) & = 2 \frac{F}{k} - 
+\frac{F}{k} \Bigl ( 
+\mathrm{e}^{- \frac{k}{b}t_1} -\mathrm{e}^{- \frac{k}{b}t_2} 
+\Bigr ) + 0.5 
+\Bigl (\mathrm{e}^{- \frac{k}{b}t_1}
+ +
+\mathrm{e}^{- \frac{k}{b}t_2} \Bigr) \\
+x(t_1 + t_2) & \neq x(t_1) + x(t_2)\\
+ \end{split}
+\end{equation*}
+
+We conclude that the system in Non-linear for the given 
+initial conditions.
