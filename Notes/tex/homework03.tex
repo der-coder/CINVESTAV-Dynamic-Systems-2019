@@ -1,0 +1,76 @@
+\section{Homework}
+
+\subsection{Introduction}
+
+Given the system shown in figure 
+\ref{fig: hw03_fig01}
+develop the equations that describe the movement of the system.
+
+\begin{figure}[ht]
+    \centering
+    \incfig{hw03_fig01}
+    \caption{Spring Mass Damper System.}
+    \label{fig: hw03_fig01}
+\end{figure}
+
+Consider the following parameters:
+
+\begin{equation*}
+ \begin{split}
+  b & = 2 \qquad m  = 0.5\qquad  x(0)  = 0\\
+  k & = 1 \qquad \mu  = 0.01\qquad \dot{x}(0)  = -0.5 \\  
+ \end{split}
+\end{equation*}
+
+The force $F(t)$ is defined as the Heaviside equation 
+$U(t) = \left\{
+\begin{array}{rl}
+0 & \text{if } t \leq 0,\\
+1 & \text{if } t > 0.
+\end{array}\right.$ 
+
+
+\subsection{Solution}
+
+From figure 
+\ref{fig: hw03_fig01}
+we establish the following equation
+
+\begin{equation}
+\begin{split}
+ \sum F & = m \ddot{x}(t)\\
+ & = F(t) - F_{friction} - F_{spring} - F_{damper}
+ \end{split}
+ \label{eq: sum of forces - homework03}
+\end{equation}
+
+Each term in \eqref{eq: sum of forces - homework03} can be substituted for its respective formula.
+
+\begin{equation*}
+ F_{friction} = \mu N \qquad F_{spring} = k x(t) \qquad F_{damper} = b \dot{x}(t) \qquad N = mg
+\end{equation*}
+
+We rewrite \eqref{eq: sum of forces - homework03} and evaluate the known values of its coefficients.
+
+\begin{equation*}
+ \begin{split}
+  U(t) - \mu N - k x(t) - b \dot{x}(t) & = m \ddot{x}(t)\\
+  U(t) - 0.04905 - x(t) - 2 \dot{x}(t) & = 0.5 \ddot{x}(t)
+ \end{split}
+\end{equation*}
+
+Apply the Laplace transform to both sides of the equation and rearrange its terms
+
+\begin{equation*}
+ \begin{split}
+  \frac{\mathrm{e}^{-s}}{s} - \frac{0.04905}{s} - \mathfrak{X} - 2 \left( s \mathfrak{X} - \mathfrak{X_0} \right) 
+  & = 0.5 \left( s^2 \mathfrak{X} - s \mathfrak{X} - \mathfrak{X_0} \right)\\
+ \end{split}
+\end{equation*}
+
+We factor $\mathfrak{X}$ in the left side of the equation and rewrite it as a function of s.
+
+\begin{equation}
+ asd
+\end{equation}
+

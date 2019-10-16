@@ -4,6 +4,16 @@
 \usepackage[english]{babel}
 % \usepackage{amssymb}  
 
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\newcommand{\incfig}[1]{%
+%      \def\svgwidth{}
+    \import{./img/}{#1.pdf_tex}
+}
+
 \title{Notes on Dynamic Systems}
 \author{Isaac Ayala Lozano}
 \date{}
@@ -13,6 +23,11 @@
 
 % Signals & Systems
 \input{./tex/week01.tex}
+\input{./tex/homework01.tex}
+\input{./tex/week02.tex}
+\input{./tex/homework02.tex}
+\input{./tex/week03.tex}
+\input{./tex/homework03.tex}
 
 % Response
 

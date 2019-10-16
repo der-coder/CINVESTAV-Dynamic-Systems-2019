@@ -239,11 +239,11 @@ system's equation is obtained as follows:
   \sum F & = 0\\
   F_s(t) + F_d(t) - F(t) & = 0\\
  \end{split}
- \label{eq: sum of forces}
+ \label{eq: sum of forces - week01}
 \end{equation}
 
 Recall the equations for springs and dampers, substituting 
-them in \ref{eq: sum of forces}.
+them in \eqref{eq: sum of forces - week01}.
 
 \begin{equation*}
  \begin{split}
@@ -325,97 +325,3 @@ x(\alpha (F_1 + F_2)) & = \alpha x(F_1) + \alpha x(F_2)
 
 We confirm that the system is linear for an initial 
 condition of $x(0)=0$.
-
-\section{Homework}
-
-\subsection{Non-Linear Case}
-
-Given the conditions $x(0) = 0.5$ and $F(t) = F$, we 
-evaluate the Laplace transform of \ref{eq: system equation} 
-and obtain
-
-\begin{equation}
-  s \mathcal{X} - 0.5 + \frac{k}{b} \mathcal{X} = 
-\frac{1}{b} \frac{F}{s}
-\end{equation}
-
-Solving for $\mathcal{X}$.
-
-\begin{equation}
- \mathcal{X} = \frac{F}{b}
-\frac{1}{s(s+\frac{k}{b})} + \frac{0.5}{s+\frac{k}{b}} 
-\label{eq: non-linear system equation laplace}
-\end{equation}
-
-Using partial fractions, find an equivalent expression for 
-\ref{eq: non-linear system equation laplace} .
-
-\begin{equation*}
- \begin{split}
-  \frac{1}{s(s+\frac{k}{b})}  & = \frac{A}{s} + 
-\frac{B}{s+\frac{k}{b}}\\
-A & = \frac{b}{k}\\
-B &= -\frac{b}{k}\\
- \end{split}
-\end{equation*}
-
-\begin{equation}
- \frac{1}{s(s+\frac{k}{b})}   = \frac{1}{s} \frac{b}{k} - 
-\frac{b}{k}
-\frac{1}{s+\frac{k}{b}}
-\label{eq: partial fractions}
-\end{equation}
-
-Substitute \ref{eq: partial fractions} in \ref{eq: 
-non-linear system equation laplace} and then obtain the 
-inverse Laplace transform of the equation.
-
-\begin{equation*}
- \begin{split}
-   \mathcal{X} & = \frac{F}{b}
-\Bigl ( \frac{1}{s} \frac{b}{k} - 
-\frac{b}{k}
-\frac{1}{s+\frac{k}{b}} \Bigr) + \frac{0.5}{s+\frac{k}{b}} 
-\\
-& = \frac{F}{k} \frac{1}{s}  - 
-\frac{F}{k}
-\frac{1}{s+\frac{k}{b}} + \frac{0.5}{s+\frac{k}{b}} 
-\\
- \end{split}
-\end{equation*}
-
-\begin{equation}
- \mathfrak{L}^{-1} \Bigl \{ \mathcal{X} \Bigr \} 
-\xrightarrow{} x(t) = \frac{F}{k} - \frac{F}{k} 
-\mathrm{e}^{-\frac{k}{b}t} + 0.5 \mathrm{e}^{-\frac{k}{b}t}
-\label{eq: non-linear system equation}
-\end{equation}
-
-Test the principles of proportionality and superposition on 
-\ref{eq: non-linear system equation}.
-
-\begin{equation*}
- \begin{split}
- x(\alpha t) & = \frac{F}{k} - \frac{F}{k} 
-\mathrm{e}^{-\alpha \frac{k}{b}t} + 0.5 
-\mathrm{e}^{-\alpha \frac{k}{b}t}\\
- \alpha x(t) &= \alpha \frac{F}{k} - \alpha \frac{F}{k} 
-\mathrm{e}^{-\frac{k}{b}t} + 0.5 \alpha 
-\mathrm{e}^{-\frac{k}{b}t}\\
-x(\alpha t) & \neq \alpha x(t)\\
-  x( t_1 + t_2) & = \frac{F}{k} - \frac{F}{k} 
-\mathrm{e}^{-\frac{k}{b}(t_1+t_2)} + 0.5 
-\mathrm{e}^{-\frac{k}{b}(t_1+t_2)}\\
-x(t_1) +  x(t_2) & = 2 \frac{F}{k} - 
-\frac{F}{k} \Bigl ( 
-\mathrm{e}^{- \frac{k}{b}t_1} -\mathrm{e}^{- \frac{k}{b}t_2} 
-\Bigr ) + 0.5 
-\Bigl (\mathrm{e}^{- \frac{k}{b}t_1}
- +
-\mathrm{e}^{- \frac{k}{b}t_2} \Bigr) \\
-x(t_1 + t_2) & \neq x(t_1) + x(t_2)\\
- \end{split}
-\end{equation*}
-
-We conclude that the system in Non-linear for the given 
-initial conditions.
