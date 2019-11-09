@@ -48,6 +48,12 @@ encoding=UTF-8
 highlight=LaTeX
 mode=LaTeX
 
+[item:tex/hw_05.tex]
+archive=true
+encoding=UTF-8
+highlight=LaTeX
+mode=LaTeX
+
 [item:tex/week01.tex]
 archive=true
 encoding=UTF-8

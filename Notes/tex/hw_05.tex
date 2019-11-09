@@ -1,0 +1,140 @@
+\section{Homework \# 05}
+
+Given a spring mass damper system as shown below, obtain a function $x(t)$ to describe the movement of the object.
+
+Consider 
+
+\begin{equation}
+F(t) = \begin{cases} 
+      t &  0 \leq t < 2  \\
+      2 & 2 \leq t < 4 \\
+      2(5-t) & 4 \leq t < 5 \\
+      0 & \text{for all other cases}
+   \end{cases}
+\end{equation}
+
+Friction follows the following behaviour
+
+\begin{equation}
+F_f (t) = \begin{cases} 
+      t &  0 \leq t < \mu N  \\
+      \mu N & \mu N \leq t < t_x \\
+      -\mu N & t_x \leq t < 5 \\
+      0 & \text{for all other cases}
+   \end{cases}
+\end{equation}
+
+\begin{equation*}   
+N = m*g
+\end{equation*}
+
+
+The values for the constants are as follows:
+
+\begin{itemize}
+ \item Spring coefficient $k = 1$
+ \item Damper coefficient $b = 2$
+ \item Mass $m = 0.5$
+ \item Friction coefficient $\mu = 0.1$
+ \item Gravity $g = 9.81$
+\end{itemize}
+
+\subsection{Solution}
+ 
+\begin{itemize}
+ \item Split the analysis of the system in different time intervals, taking into account the change in values for both $F(t)$ and $F_f (t)$.
+ \item Obtain the homogeneous and particular solutions at each time interval, and determine the coefficients associated for each of them.
+ \item  Find the value for $t_x$. Recall $\dot{x}(t_x)=0$.
+\end{itemize}
+
+
+The sum of forces at any point in time is 
+
+$\sum F = F(t) - F_f (t) - F_b - F_k$ 
+
+$F_k = k x(t)$
+
+$F_b = b \dot{x}(t)$
+
+Recall that $\sum F = m \ddot{x}(t)$ and rewrite the equation as follows
+
+$ m \ddot{x}(t) = F(t) - F_f (t) - b \ddot{x}(t) - k x(t)$
+
+Reorder the terms to express the equation as an ODE
+
+$ m \ddot{x}(t) + b \ddot{x}(t) + k x(t) = F(t) - F_f (t)$
+
+Divide all terms by $m$
+
+$  \ddot{x}(t) + \dfrac{b}{m} \ddot{x}(t) + \dfrac{k}{m} x(t) = \dfrac{F(t) - F_f (t)}{m}$
+
+Evaluate the known constants
+
+$  \ddot{x}(t) + 4 \ddot{x}(t) + 2 x(t) = 2 F(t) - 2 F_f (t)$
+
+
+The general solution to this ODE will have the following form
+
+$x(t) = x_h (t) + x_p (t)$
+
+The homogeneous solution is obtained by replacing the values on the right hand side of the equation with 0 and solving the ODE.
+
+$\ddot{x}(t) + 4 \ddot{x}(t) + 2 x(t) = 0$
+
+$\lambda^2 + 4 \lambda +2 = 0$
+
+$\lambda = \dfrac{-4\pm \sqrt{4^2 - 4 (1) (2)}}{2}$
+
+$\lambda = \dfrac{-4\pm \sqrt{8}}{2}$
+
+$\lambda = -2\pm \sqrt{2}$
+
+$\lambda_1 = -2 + \sqrt{2}$
+
+$\lambda_2 = -2 - \sqrt{2}$
+
+The homogeneous solution is the following
+
+$x_h (t) = c_1 \exp{(\lambda_1 t)} + c_2 \exp{(\lambda_2 t)}$
+
+$\dot{x}_h (t) = c_1 \lambda_1 \exp{(\lambda_1 t)} + c_2 \lambda_2 \exp{(\lambda_2 t)}$
+
+The particulara solution is different at each time interval. See in the following sections for the process of obtaining it at each time interval.
+
+The coefficients $c_1$ and $c_2$ are obtained at each time interval based on the initial conditions for each of them ($x(\tau)$, $\dot{x}(\tau)$).
+
+A general solution is presented below
+
+Let $t=\tau$ and evaluate for $x(t)$ and $\dot{x}(t)$
+
+$x(\tau) = x_\tau$
+
+$\dot{x}(\tau) = \dot{x}_\tau$
+
+Solve for $c_2$ in $x_\tau$
+
+$x_{\tau} = c_1 \exp{(\lambda_1 \tau)} + c_2 \exp{(\lambda_2 \tau)} + x_p (\tau)$
+
+$x_{\tau} - x_p (\tau) = c_1 \exp{(\lambda_1 \tau)} + c_2 \exp{(\lambda_2 \tau)} $
+
+$x_{\tau} - x_p (\tau) - c_1 \exp{(\lambda_1 \tau)} = c_2 \exp{(\lambda_2 \tau)} $
+
+$c_2   = \dfrac{x_{\tau} - x_p (\tau) - c_1 \exp{(\lambda_1 \tau)}}{\exp{(\lambda_2 \tau)}} $
+
+Now evaluate $c_2$ in $\dot{x}_\tau$ and solve for $c_1$. Recall that the first derivative is written as follows
+
+$\dot{x}(t) = c_1 \lambda_1 \exp{(\lambda_1 t)} + c_2 \lambda_2 \exp{(\lambda_2 t)} +  \dot{x}_p (t) $
+
+Substituting $c_2$
+
+$\dot{x}_{\tau} = c_1 \lambda_1 \exp{(\lambda_1 t)} + (\dfrac{x_{\tau} - x_p (\tau) - c_1 \exp{(\lambda_1 \tau)}}{\exp{(\lambda_2 \tau)}}) \lambda_2 \exp{(\lambda_2 \tau)} +  \dot{x}_p (\tau) $
+
+Factorise $c_1$ and simplify.
+
+$\dot{x}_{\tau} = c_1 \lambda_1 \exp{(\lambda_1 t)} + (x_{\tau} - x_p (\tau) - c_1 \exp{(\lambda_1 \tau)}) \lambda_2  +  \dot{x}_p (\tau) $
+
+$\dot{x}_{\tau} = c_1 (\lambda_1 \exp{(\lambda_1 t)} - \lambda_2 \exp{(\lambda_1 \tau)} )  + \lambda_2 x_{\tau} - \lambda_2 x_p (\tau)  +  \dot{x}_p (\tau) $
+
+Solve for $c_1$
+
+$c_1 = \dfrac{\dot{x}_{\tau} - \lambda_2 x_{\tau} + \lambda_2 x_p (\tau)  -  \dot{x}_p (\tau)}{ \lambda_1 \exp{(\lambda_1 \tau)} - \lambda_2 \exp{(\lambda_1 \tau)}  }  $
